@@ -1,14 +1,19 @@
-const slide = document.querySelectorAll(".slide");
+function isStart(numSlide) {
+  const slides = document.querySelectorAll(".slide");
 
-slide.forEach((element) => {
-  element.addEventListener("click", () => {
-    clear();
-    element.classList.add("isActive");
-  });
-});
+  slides[numSlide].classList.add("isActive");
 
-function clear() {
-  slide.forEach((element) => {
-    element.classList.remove("isActive");
+  slides.forEach((element) => {
+    element.addEventListener("click", () => {
+      clear();
+      element.classList.add("isActive");
+    });
   });
+
+  function clear() {
+    slides.forEach((element) => {
+      element.classList.remove("isActive");
+    });
+  }
 }
+isStart(0);
